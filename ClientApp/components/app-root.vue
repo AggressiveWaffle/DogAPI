@@ -1,7 +1,7 @@
 <template>
     <v-app id="app" dark>
         <v-toolbar app fixed clipped-left>
-            <v-toolbar-title>DogAPI</v-toolbar-title>
+            <v-toolbar-title>Dog register</v-toolbar-title>
         </v-toolbar>
         <v-content>
             <v-container fluid>

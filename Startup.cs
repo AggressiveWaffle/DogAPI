@@ -1,14 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using workspace.Models;
 namespace workspace
 {
     public class Startup
@@ -30,6 +31,8 @@ namespace workspace
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<DogsContext>(options => options.UseSqlite("Data Source=DogApi.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +52,16 @@ namespace workspace
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+            }
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                if (!serviceScope.ServiceProvider.GetService<DogsContext>().AllMigrationsApplied())
+                {
+                    serviceScope.ServiceProvider.GetService<DogsContext>().Database.Migrate();
+                    
+                }
+                serviceScope.ServiceProvider.GetService<DogsContext>().EnsureSeeded();
             }
 
             app.UseStaticFiles();

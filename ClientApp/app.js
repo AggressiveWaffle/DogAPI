@@ -5,7 +5,9 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import VeeValidate from 'vee-validate';
 
+Vue.use(VeeValidate);
 Vue.use(Vuetify)
 import App from 'components/app-root'
 
