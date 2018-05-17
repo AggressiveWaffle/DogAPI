@@ -38,7 +38,8 @@ This repo contains the Dog Api solution.
  * If no data present you might have to run migrations/seed.
  * - dotnet ef database update
 
-
+For deploying to web server I used this guide to build docker image to a free heroku.
+https://blog.devcenter.co/deploy-asp-net-core-2-0-apps-on-heroku-eea8efd918b6
 
 # Extras
 
@@ -47,11 +48,10 @@ This repo contains the Dog Api solution.
 
 # Found a Bug? Want to Contribute?
 
-Nothing's ever perfect, but please let me know by creating an issue (make sure there isn't an existing one about it already), and we'll try and work out a fix for it! If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
+If you have any good ideas, or want to contribute, feel free to either make an Issue with the Proposal, or just make a PR from your Fork.
 
 ----
 
 ### Special Thanks
 
-This repo contains an aspnetcore + Vue.js 2 starter template (VS2017). The template is based
-on the [original starter templates](https://blogs.msdn.microsoft.com/webdev/2017/02/14/building-single-page-applications-on-asp-net-core-with-javascriptservices/) (Angular, Knockout, React, Aurelia), which can be found [here](https://github.com/aspnet/JavaScriptServices/tree/dev/templates)
+This repo contains an aspnetcore + Vue.js 2 starter template (VS2017). 
